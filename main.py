@@ -1,7 +1,11 @@
+from dotenv import load_dotenv
 import asyncio
+import os
 import discord
 from discord.ext import commands
 
+load_dotenv()
+DISCORD_TOKEN = os.getenv("DISCORD_TOKEN")
 
 # Create bot client.
 intents = discord.Intents.default()
@@ -116,5 +120,4 @@ async def d(ctx):
     async for user in reaction.users():
         await channel.send('{0} has reacted with {1.emoji}!'.format(user, reaction))
 
-
-client.run("Nzk2ODI4Mjc4NzAyNDczMjc4.X_dmKQ.XKZ1mPd-n_Wf4Fo4HfjVeql4i2k")
+client.run(DISCORD_TOKEN)
